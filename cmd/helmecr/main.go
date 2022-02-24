@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ecr"
 )
 
@@ -30,7 +31,7 @@ func main() {
 		log.Fatalf("failed to parse repository: %v", err)
 	}
 
-	session, err := NewSession()
+	session, err := session.NewSession()
 	if err != nil {
 		log.Fatalf("failed to create AWS session: %v", err)
 	}
